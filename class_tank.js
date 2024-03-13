@@ -30,7 +30,6 @@ class Tank extends Obj{
     tempo = 0
 
     desenhaTank(){
-       
 
     // roda dianteira direita
     des.beginPath()
@@ -41,17 +40,17 @@ class Tank extends Obj{
     des.closePath()
     des.stroke()
     des.fill()
-        
+    
      // roda dianteira esquerda
-     des.beginPath()
-     des.lineWidth = '5'
-     des.strokeStyle="black"
-     des.fillStyle = "black"
-     des.rect(this.x,this.y-60,10,10)
-     des.closePath()
-     des.stroke()
-     des.fill()
-        
+    des.beginPath()
+    des.lineWidth = '5'
+    des.strokeStyle="black"
+    des.fillStyle = "black"
+    des.rect(this.x,this.y-60,10,10)
+    des.closePath()
+    des.stroke()
+    des.fill()
+    
     // roda traseira direita
     des.beginPath()
     des.lineWidth = '5'
@@ -61,7 +60,7 @@ class Tank extends Obj{
     des.closePath()
     des.stroke()
     des.fill()
-        
+    
     // roda traseira esquerda
     des.beginPath()
     des.lineWidth = '5'
@@ -71,7 +70,7 @@ class Tank extends Obj{
     des.closePath()
     des.stroke()
     des.fill()
-        
+    
     // trapezio do carro
     des.beginPath()
     des.moveTo(this.x,this.y)  
@@ -84,7 +83,7 @@ class Tank extends Obj{
     des.fillStyle = this.a
     des.stroke()
     des.fill()
-        
+    
     // desenhando corpo frente em um retangulo
     des.beginPath()
     des.lineWidth = '5'
@@ -104,7 +103,7 @@ class Tank extends Obj{
     des.closePath()
     des.stroke()
     des.fill()
-            
+    
     }
     atualizaTank(){
         this.x += this.dirX

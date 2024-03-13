@@ -1,7 +1,7 @@
 let des = document.getElementById('desenha').getContext('2d')
 
 let tank = new Tank (220, 550,45,100,'white')
-
+let background = new BG(0,0,1200,450,'./Assets/testebackground.png') 
 let grupoTiros = [] 
 let tiros = 0
 let grupoCarro = []
@@ -23,7 +23,7 @@ function tiros(){
 }
 
 
- function carros(){
+function carros(){
     time1 = 0 
     time2 = 0
     time3 = 0
@@ -112,11 +112,18 @@ document.addEventListener('keyup', (e)=> {
 
 function desenha(){
     tank.desenhaTank()
+    background.desenhaImagem()
 }
 
 function atualiza(){
 
 }
 
+function main(){
+    des.clearRect(0,0,500,700)
+    desenha()
+    atualiza()
+    requestAnimationFrame(main)
+}
 
 setInterval(main,10)
