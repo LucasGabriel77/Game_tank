@@ -42,85 +42,6 @@ class Tanque extends Obj{
     vida = 10
     frame = 1
     tempo = 0
-    
-    
-
-    desenha_tanque(){
-
-    // roda dianteira direita
-    des.beginPath()
-    des.lineWidth = '5'
-    des.strokeStyle='black'
-    des.fillStyle = 'black'
-    des.rect(this.x+40,this.y-60,10,10)
-    des.closePath()
-    des.stroke()
-    des.fill()
-
-    // roda dianteira esquerda
-    des.beginPath()
-    des.lineWidth = '5'
-    des.strokeStyle='black'
-    des.fillStyle = 'black'
-    des.rect(this.x,this.y-60,10,10)
-    des.closePath()
-    des.stroke()
-    des.fill()
-
-    // roda traseira direita
-    des.beginPath()
-    des.lineWidth = '5'
-    des.strokeStyle='black'
-    des.fillStyle = 'black'
-    des.rect(this.x+40,this.y-20,10,10)
-    des.closePath()
-    des.stroke()
-    des.fill()
-
-    // roda traseira esquerda
-    des.beginPath()
-    des.lineWidth = '5'
-    des.strokeStyle='black'
-    des.fillStyle = 'black'
-    des.rect(this.x,this.y-20,10,10)
-    des.closePath()
-    des.stroke()
-    des.fill()
-
-    // trapezio do carro
-    des.beginPath()
-    des.moveTo(this.x,this.y)  
-    des.lineTo(this.x+50,this.y)
-    des.lineTo(this.x+40,this.y-50)
-    des.lineTo(this.x+10,this.y-50)
-    des.closePath()
-    des.lineWidth = '5'
-    des.strokeStyle='black'
-    des.fillStyle = this.a
-    des.stroke()
-    des.fill()
-
-    // desenhando corpo frente em um retangulo
-    des.beginPath()
-    des.lineWidth = '5'
-    des.strokeStyle='black'
-    des.fillStyle = this.a
-    des.rect(this.x+10,this.y-70,30,20) 
-    des.closePath()
-    des.stroke()
-    des.fill()
-
-    // desenhando asa frente em um retangulo sobrescrevendo a borda
-    des.beginPath()
-    des.lineWidth = '5'
-    des.strokeStyle='black'
-    des.fillStyle = this.a
-    des.rect(this.x,this.y-80,50,10)
-    des.closePath()
-    des.stroke()
-    des.fill()
-    
-    }
 
     atualiza_tanque(){
         this.x += this.dirX
@@ -149,11 +70,7 @@ class Tanque extends Obj{
 
     }
 }
-class Tanque_inimigo extends Obj {
-des_est() {
-    des.fillStyle = this.a;
-    des.fillRect(this.x, this.y, this.w, this.h);
-}
+class Tanque2 extends Obj {
 
 mov_inimigo() {
     this.x += 2;
@@ -162,7 +79,6 @@ mov_inimigo() {
         }
     }
 }
-
 class Tiro extends Obj{
     desenhaTiro(){
         des.fillStyle = this.a
