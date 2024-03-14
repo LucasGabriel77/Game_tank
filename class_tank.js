@@ -14,11 +14,24 @@ class Obj{
         
     }
 
-    des_img(){
-        
+    desenha_img(){
+        let img = new Image()
+        img.src = this.a
+        des.drawImage(img,this.x,this.y,this.w,this.h)
     }
 
+    colid(objeto) {
+        if((this.x < objeto.x + objeto.w)&&
+            (this.x + this.w > objeto.x)&&
+            (this.y < objeto.y + objeto.h)&&
+            (this.y + this.h > objeto.y)){
+            return true       
+        }else{
+            return false
+        }
 
+
+}
 }
 
 
@@ -33,7 +46,6 @@ class Tanque extends Obj{
     
 
     desenha_tanque(){
-       
 
     // roda dianteira direita
     des.beginPath()
@@ -114,17 +126,17 @@ class Tanque extends Obj{
         this.x += this.dirX
         this.y += this.dirY
         
-        if(this.x <30){
-            this.x = 30
+        if(this.x <-15){
+            this.x = -15
         }
-        else if(thix.x >= 1050){
-            this.x = 1050
+        else if(this.x > 200){
+            this.x = 200
         }
-        if(this.y <=70){
-            this.y = 70
+        if(this.y <= 110){
+            this.y = 110
         }
-        else if(this.y >=590){
-            this.y = 590
+        else if(this.y >=290){
+            this.y = 290
         }
     } 
 
@@ -137,7 +149,20 @@ class Tanque extends Obj{
 
     }
 }
-   
+class Tanque_inimigo extends Obj {
+des_est() {
+    des.fillStyle = this.a;
+    des.fillRect(this.x, this.y, this.w, this.h);
+}
+
+mov_inimigo() {
+    this.x += 2;
+    if (this.x >= 0) {
+    this.x = 1300;
+        }
+    }
+}
+
 class Tiro extends Obj{
     desenhaTiro(){
         des.fillStyle = this.a
