@@ -1,4 +1,4 @@
-class Obj{
+class Objeto{
     constructor(x,y,w,h,a){
         this.x = x
         this.y = y
@@ -29,13 +29,11 @@ class Obj{
         }else{
             return false
         }
-
-
 }
 }
 
 
-class Tanque extends Obj{
+class Tanque extends Objeto{
     dirX = 0
     dirY = 0
     pontuacao = 0
@@ -47,17 +45,17 @@ class Tanque extends Obj{
         this.x += this.dirX
         this.y += this.dirY
         
-        if(this.x <-15){
-            this.x = -15
+        if(this.x <0){
+            this.x = 0
         }
-        else if(this.x > 200){
-            this.x = 200
+        else if(this.x > 260){
+            this.x = 260
         }
-        if(this.y <= 110){
-            this.y = 110
+        if(this.y <= 120){
+            this.y = 120
         }
-        else if(this.y >=290){
-            this.y = 290
+        else if(this.y >=300){
+            this.y = 300
         }
     } 
 
@@ -69,8 +67,15 @@ class Tanque extends Obj{
     recomeca(){
 
     }
+    mov_inimigo() {
+        this.x += 2;
+        if (this.x >= 0) {
+        this.x = 1300;
+            }
+        }
+
 }
-class Tanque2 extends Obj {
+class Tanque2 extends Objeto{
 
 mov_inimigo() {
     this.x += 2;
@@ -79,7 +84,7 @@ mov_inimigo() {
         }
     }
 }
-class Tiro extends Obj{
+class Tiro extends Objeto{
     desenhaTiro(){
         des.fillStyle = this.a
         des.fillRect(this.x, this.y, this.w, this.h)
