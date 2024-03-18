@@ -1,8 +1,8 @@
 let des = document.getElementById('desenha').getContext('2d')
-let tanque = new Tanque (100,200,70,70,"./Assets/tanque_01.png")
-let tanque_inimigo = new Tanque2 (1120,250,60,60,"./Assets/tanque_inimigo.png")
-let tanque_inimigo2 = new Tanque2 (1050,200,60,60,"./Assets/tanque_inimigo.png")
-let tanque_inimigo3 = new Tanque2 (1150,175,60,60,"./Assets/tanque_inimigo.png")
+let tanque = new Tanque (100,200,70,70,"../Assets/tanque_01.png")
+let tanque_inimigo = new Tanque2 (1120,250,60,60,"../Assets/tanque_inimigo.png")
+let tanque_inimigo2 = new Tanque2 (1050,200,60,60,"../Assets/tanque_inimigo.png")
+let tanque_inimigo3 = new Tanque2 (1150,175,60,60,"../Assets/tanque_inimigo.png")
 
 let grupoTiros = []
 let tiros = 0

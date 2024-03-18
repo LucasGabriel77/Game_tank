@@ -5,4 +5,4 @@ let img = new Image();
 img.onload = function(){
   ctx.drawImage(img,0,0,canvas.clientWidth, canvas.height);
 };
-img.src = './assets/normal.png'
+img.src = '../assets/normal.png'
