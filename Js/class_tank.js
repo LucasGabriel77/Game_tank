@@ -64,24 +64,32 @@ class Tanque extends Objeto{
             return true
         }
     }
-    recomeca(){
-
-    }
-    mov_inimigo() {
-        this.x += 2;
-        if (this.x >= 0) {
-        this.x = 1300;
-            }
+    
+    colid(objeto){
+        if((this.x < objeto.x + objeto.w)&&
+          (this.x + this.w > objeto.x)&&
+          (this.y < objeto.y + objeto.h)&&
+          (this.y + this.h > objeto.y)){
+            return true
+        }else{
+            false
         }
+    }
 
 }
 class Tanque2 extends Objeto{
 
 mov_inimigo() {
-    this.x += 2;
-    if (this.x >= 0) {
-    this.x = 1300;
+    this.x -= 2;
+    if (this.x <= 0) {
+        console.log(this.x)
+        this.x += 1000 + (Math.random() * ((1300 - 1600 + 1) + 1600))
         }
+    }
+
+    recomeca(){
+        this.y = -100
+        this.x = 1000 + (Math.random() * ((1300 - 1600 + 1) + 1600)) 
     }
 }
 class Tiro extends Objeto{
@@ -92,6 +100,7 @@ class Tiro extends Objeto{
     movimentacao(){
         this.y -= 10
     }
+
 }
 
 
