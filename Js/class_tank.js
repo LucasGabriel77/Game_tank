@@ -77,30 +77,50 @@ class Tanque extends Objeto{
     }
 
 }
-class Tanque2 extends Objeto{
+class Inimigos extends Objeto{
+    vel = 3
 
-mov_inimigo() {
-    this.x -= 2;
-    if (this.x <= 0) {
-        console.log(this.x)
-        this.x += 1000 + (Math.random() * ((1300 - 1600 + 1) + 1600))
-        }
+    mov(){
+        this.x -= this.vel
     }
-
-    recomeca(){
-        this.y = -100
-        this.x = 1000 + (Math.random() * ((1300 - 1600 + 1) + 1600)) 
-    }
+    
 }
+
 class Tiro extends Objeto{
-    desenhaTiro(){
-        des.fillStyle = this.a
+    des_tiro(){
+        des.fillStyle = this.at
         des.fillRect(this.x, this.y, this.w, this.h)
     }
-    movimentacao(){
-        this.y -= 10
-    }
 
+    mov(){
+        this.x += 10
+    }
 }
+
+// class Tanque2 extends Objeto{
+
+// mov_inimigo() {
+//     this.x -= 2;
+//     if (this.x <= 0) {
+//         console.log(this.x)
+//         this.x += 1000 + (Math.random() * ((1300 - 1600 + 1) + 1600))
+//         }
+//     }
+
+//     recomeca(){
+//         this.y = -100
+//         this.x = 1000 + (Math.random() * ((1300 - 1600 + 1) + 1600)) 
+//     }
+// }
+// class Tiro extends Objeto{
+//     desenhaTiro(){
+//         des.fillStyle = this.a
+//         des.fillRect(this.x, this.y, this.w, this.h)
+//     }
+//     movimentacao(){
+//         this.y -= 10
+//     }
+
+// }
 
 
