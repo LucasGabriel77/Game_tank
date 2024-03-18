@@ -88,8 +88,7 @@ mov_inimigo() {
     }
 
     recomeca(){
-        this.y = -100
-        this.x = 1000 + (Math.random() * ((1300 - 1600 + 1) + 1600)) 
+        this.x = 1300 + (Math.random() * ((1300 - 1600 + 1) + 1600)) 
     }
 }
 class Tiro extends Objeto{
