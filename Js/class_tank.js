@@ -75,6 +75,19 @@ class Tanque extends Objeto{
         }
 
 }
+
+class Tiro extends Objeto{
+    des_tiro(){
+        des.fillStyle = this.a
+        des.fillRect(this.x, this.y, this.w, this.h)
+    }
+
+    mov(){
+        this.x += 10
+    }
+}
+
+
 class Tanque2 extends Objeto{
 
 mov_inimigo() {
@@ -82,15 +95,6 @@ mov_inimigo() {
     if (this.x >= 0) {
     this.x = 1300;
         }
-    }
-}
-class Tiro extends Objeto{
-    desenhaTiro(){
-        des.fillStyle = this.a
-        des.fillRect(this.x, this.y, this.w, this.h)
-    }
-    movimentacao(){
-        this.y -= 10
     }
 }
 

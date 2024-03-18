@@ -4,8 +4,30 @@ let tanque_inimigo = new Tanque2 (1120,250,60,60,"./Assets/tanque_inimigo.png")
 let tanque_inimigo2 = new Tanque2 (1050,200,60,60,"./Assets/tanque_inimigo.png")
 let tanque_inimigo3 = new Tanque2 (1150,175,60,60,"./Assets/tanque_inimigo.png")
 
-let grupoTiros = []
-let tiros = 0
+let grupoTiros = [] 
+let tiros = {
+    des(){
+        grupoTiros.forEach((tiro)=>{
+            tiro.des_tiro()
+        })
+    },
+    atual(){
+        grupoTiros.forEach((tiro)=>{
+            tiro.mov()
+            if(tiro.y <= -10){
+                grupoTiros.splice(tiro[0],1)
+            }
+        })
+    }
+}
+
+document.addEventListener('keypress', (e)=>{
+    if (e.key === 'l') {
+        grupoTiros.push(new Tiro(tanque.x - 2 + tanque.w / 1, tanque.y + 30, 10, 10, "./Assets/tiro.png"))
+        // console.log(grupoTiros)
+    }
+    // som1.play()
+})
 
 
 
@@ -53,6 +75,7 @@ function pontos(){
 
 function desenha(){
     // tiros.desenhaObjeto()
+    tiros.des()
     tanque.desenha_img()
     tanque_inimigo.desenha_img()
     tanque_inimigo2.desenha_img()
@@ -62,6 +85,7 @@ function desenha(){
 
 function atualiza(){
     tanque.atualiza_tanque()
+    tiros.atual()
     // tanque_inimigo.mov_inimigo()
     // tanque_inimigo2.mov_inimigo()
     // tanque_inimigo3.mov_inimigo()
