@@ -37,7 +37,7 @@ class Tanque extends Objeto{
     dirX = 0
     dirY = 0
     pontuacao = 0
-    vida = 10
+    vida = 2
     frame = 1
     tempo = 0
 
@@ -62,6 +62,8 @@ class Tanque extends Objeto{
     pontos(objeto){
         if(this.y > objeto.y){
             return true
+        }else{
+            false
         }
     }
     
@@ -100,6 +102,15 @@ class Tiro extends Objeto{
         this.y -= 10
     }
 
+}
+
+class Text {
+    desenhaTexto (text,x,y,cor,font){
+       des.fillStyle = cor
+       des.lineWidth = '5'
+       des.font = font
+       des.fillText(text,x,y) 
+    } 
 }
 
 
