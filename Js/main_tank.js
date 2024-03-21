@@ -23,11 +23,13 @@ let tiros = {
 
 document.addEventListener('keypress', (e)=>{
     if (e.key === 'l') {
-        grupoTiros.push(new Tiro(tanque.x - 2 + tanque.w / 1, tanque.y + 30, 10, 10, "./Assets/tiro.png"))
+        grupoTiros.push(new Tiro(tanque.x - 2 + tanque.w / 1, tanque.y + 30, 10, 10, './Assets/tiro1.png'))
         // console.log(grupoTiros)
     }
     // som1.play()
 })
+
+
 
 
 
@@ -62,24 +64,48 @@ document.addEventListener('keyup', (e)=> {
         tanque.dirY = 0
     }
 })
-// document.addEventListener('keypress', (e)=>{
-//     if (e.key === 'l') {
-//         grupoTiros.push(new Tiro(tanque.x - 4 + tanque.w / 2, tanque.y, 8, 16, 'red'))
-//         console.log(grupoTiros)
-//     }
+document.addEventListener('keydown', (e)=>{
+    // console.log(e.key)
+    if(e.key === 'A'){
+        tanque.dirX -= 3
+    }
+    else if(e.key === 'D'){
+        tanque.dirX += 3
+    }
+    else if(e.key === 'W'){
+        tanque.dirY -= 3
+    }
+    else if(e.key === 'S'){
+        tanque.dirY += 3
+    }
+})
 
-// })
+document.addEventListener('keyup', (e)=> {
+    // console.log(e.key)
+    if(e.key === 'A'){
+        tanque.dirX = 0
+    }
+    else if(e.key === 'D'){
+        tanque.dirX = 0
+    }
+    else if(e.key === 'W'){
+        tanque.dirY = 0
+    }
+    else if(e.key === 'S'){
+        tanque.dirY = 0
+    }
+})
 
 function pontos(){
 }
 
 function desenha(){
     // tiros.desenhaObjeto()
-    tiros.des()
     tanque.desenha_img()
     tanque_inimigo.desenha_img()
     tanque_inimigo2.desenha_img()
     tanque_inimigo3.desenha_img()
+    tiros.des()
 
 }
 
