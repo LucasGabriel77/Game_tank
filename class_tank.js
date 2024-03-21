@@ -8,7 +8,7 @@ class Objeto{
     }
 
     desenhaObjeto(){
-        des.fillStyle = this.a
+        des.fillStyle = 'blue'
         des.fillRect(this.x, this.y, this.w, this.h)
     }
 
@@ -74,7 +74,7 @@ class Tanque extends Objeto{
 }
 
 class Inimigos extends Objeto{
-    vel = 4
+    vel = 1
 
     mov(){
         this.x -= this.vel
@@ -82,7 +82,7 @@ class Inimigos extends Objeto{
 }
 class Tiro extends Objeto{
     des_tiro(){
-        des.fillStyle = this.a
+         des.fillStyle = 'blue'
         des.fillRect(this.x, this.y, this.w, this.h)
     }
 

@@ -1,5 +1,6 @@
 let des = document.getElementById('desenha').getContext('2d')
 let tanque = new Tanque (100,200,70,70,"../Assets/tanque_01.png")
+let bg = new Objeto (0,0,1200,450,"../Assets/normal.png")
 let text1 = new Text()
 let text2 = new Text()
 let text3 = new Text()
@@ -40,20 +41,19 @@ let inimigos = {
         this.time2 += 1
         let pos_y = Math.floor(Math.random() * (320 - 140) + 140)
         let pos_y2 = Math.floor(Math.random() * (320 - 140) + 140)
-        if(this.time1 >=90){
+        if(this.time1 >=100){
             this.time1 = 0
-            grupoInimigos.push(new Inimigos(1100, pos_y,40,40, "Assets/tanque_inimigo.png"))
-            console.log(grupoInimigos)
+            grupoInimigos.push(new Inimigos(1100, pos_y,70,70, "../Assets/tanque_inimigo.png"))
         }
-        if(this.time2 >=180){
+        if(this.time2 >=200){
             this.time2 = 0
-            grupoInimigos.push(new Inimigos(1150,pos_y2,40,40, "Assets/tanque_inimigo.png"))
-            console.log(grupoInimigos)
+            grupoInimigos.push(new Inimigos(1250,pos_y2,70,70, "../Assets/tanque_inimigo.png"))
         }
     },
     des(){
-        grupoInimigos.forEach((inimigo)=>{
-            inimigo.desenhaObjeto()
+        grupoInimigos.forEach((inimig)=>{
+            inimig.desenha_img()
+            console.log(inimig)
         })
     },
     destroiInimigo(){
@@ -72,8 +72,8 @@ let inimigos = {
         this.destroiInimigo()
         grupoInimigos.forEach((inimigo)=>{
             inimigo.mov()
-            if(inimigo.x <= 0){
-                grupoInimigos.splice(grupoInimigos.indexOf(inimigo),1)
+            if(inimigo.x <= 0){ ((tanque.vida -=1) && (
+                grupoInimigos.splice(grupoInimigos.indexOf(inimigo),1)))
             }
         })
     }
@@ -130,14 +130,16 @@ function colisao(){
 
 function desenha(){
     if(jogar){
+        bg.desenha_img()
         tiros.des()
-        inimigos.des()
         tanque.desenha_img()
+        inimigos.des()
         text1.desenhaTexto('Pontos:', 1000, 20, 'yellow', '20px times')
         text2.desenhaTexto(tanque.pts, 1065, 20, 'yellow', '20px times')
         text3.desenhaTexto('Vida:', 800,20, 'yellow', '20px times')
         text4.desenhaTexto(tanque.vida,850,20, ' yellow', '20px times')
     }else{
+        bg.desenha_img()
         text5.desenhaTexto('Game Over', 500, 230, 'black', '40px times')
     }
 }
