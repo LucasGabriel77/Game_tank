@@ -78,16 +78,35 @@ class Inimigos extends Objeto{
 
     mov(){
         this.x -= this.vel
+        if(tanque.pts >= 50){
+            this.vel = 1.5
+            this.x -= this.vel  
+        }
+        if(tanque.pts >= 100){
+            this.vel = 2
+            this.x -= this.vel  
+        }
+        if(tanque.pts >= 150){
+            this.vel = 2.5
+            this.x -= this.vel  
+        }
+        if(tanque.pts >= 200){
+            this.vel = 3
+            this.x -= this.vel  
+        }
     }
 }
 class Tiro extends Objeto{
     des_tiro(){
-         des.fillStyle = 'blue'
-        des.fillRect(this.x, this.y, this.w, this.h)
+        //  des.fillStyle = 'black'
+        // des.fillRect(this.x, this.y, this.w, this.h)
+        let img = new Image()
+        img.src = this.a
+        des.drawImage(img,this.x,this.y,this.w,this.h)
     }
 
     mov(){
-        this.x += 6
+        this.x += 5
     }
 }
 class Text {

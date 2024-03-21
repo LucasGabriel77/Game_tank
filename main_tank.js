@@ -1,6 +1,7 @@
 let des = document.getElementById('desenha').getContext('2d')
 let tanque = new Tanque (100,200,70,70,"../Assets/tanque_01.png")
 let bg = new Objeto (0,0,1200,450,"../Assets/normal.png")
+let fase2 = new Objeto(0,0,1200,450, "../Assets/fase2.png")
 let text1 = new Text()
 let text2 = new Text()
 let text3 = new Text()
@@ -26,8 +27,8 @@ let tiros = {
 let jogar = true
 
 document.addEventListener('keypress', (e)=>{
-    if (e.key === 'l') {
-        grupoTiros.push(new Tiro(tanque.x - 2 + tanque.w / 1, tanque.y + 30, 10, 10, "../Assets/tiro.png"))
+    if (e.key === 'l' || e.key === 'L') {
+        grupoTiros.push(new Tiro(tanque.x - 2 + tanque.w / 1, tanque.y + 30, 10, 10, "../Assets/tiro1.png"))
     }
 })
 
@@ -82,32 +83,32 @@ let inimigos = {
 
 document.addEventListener('keydown', (e)=>{
     // console.log(e.key)
-    if(e.key === 'a' || e.key === 'ArrowLeft'){
+    if(e.key === 'a' || e.key === 'ArrowLeft' || e.key === 'A'){
         tanque.dirX -= 2
     }
-    else if(e.key === 'd' || e.key === 'ArrowRight'){
+    else if(e.key === 'd' || e.key === 'ArrowRight' || e.key === 'D'){
         tanque.dirX += 2
     }
-    else if(e.key === 'w' || e.key === 'ArrowUp'){
+    else if(e.key === 'w' || e.key === 'ArrowUp' || e.key === 'W'){
         tanque.dirY -= 2
     }
-    else if(e.key === 's' || e.key === 'ArrowDown'){
+    else if(e.key === 's' || e.key === 'ArrowDown' || e.key === 'S'){
         tanque.dirY += 2
     }
 })
 
 document.addEventListener('keyup', (e)=> {
     // console.log(e.key)
-    if(e.key === 'a' || e.key === 'ArrowLeft'){
+    if(e.key === 'a' || e.key === 'ArrowLeft' || e.key === 'A'){
         tanque.dirX = 0
     }
-    else if(e.key === 'd' || e.key === 'ArrowRight'){
+    else if(e.key === 'd' || e.key === 'ArrowRight' || e.key === 'D'){
         tanque.dirX = 0
     }
-    else if(e.key === 'w' || e.key === 'ArrowUp'){
+    else if(e.key === 'w' || e.key === 'ArrowUp' || e.key === 'W'){
         tanque.dirY = 0
     }
-    else if(e.key === 's' || e.key === 'ArrowDown'){
+    else if(e.key === 's' || e.key === 'ArrowDown' || e.key === 'S'){
         tanque.dirY = 0
     }
 })
@@ -138,6 +139,16 @@ function desenha(){
         text2.desenhaTexto(tanque.pts, 1065, 20, 'yellow', '20px times')
         text3.desenhaTexto('Vida:', 800,20, 'yellow', '20px times')
         text4.desenhaTexto(tanque.vida,850,20, ' yellow', '20px times')
+        if(tanque.pts>= 50){
+            fase2.desenha_img()
+            tiros.des()
+            tanque.desenha_img()
+            inimigos.des()
+            text1.desenhaTexto('Pontos:', 1000, 20, 'yellow', '20px times')
+            text2.desenhaTexto(tanque.pts, 1065, 20, 'yellow', '20px times')
+            text3.desenhaTexto('Vida:', 800,20, 'yellow', '20px times')
+            text4.desenhaTexto(tanque.vida,850,20, ' yellow', '20px times')
+        } 
     }else{
         bg.desenha_img()
         text5.desenhaTexto('Game Over', 500, 230, 'black', '40px times')
@@ -152,12 +163,17 @@ function atualiza(){
     colisao()
     }
     gameOver()
+
 }
 
 function main(){
     des.clearRect(0,0,1200,450)
     desenha()
     atualiza()
+}
+
+function resetar(){
+    
 }
 
 setInterval(main,10)
