@@ -7,6 +7,12 @@ let text2 = new Text()
 let text3 = new Text()
 let text4 = new Text()
 let text5 = new Text()
+let text6 = new Text()
+
+let andando = new Audio('./sounds/andandot.wav')
+andando.volume = 0.6
+andando.loop = true
+
 let grupoTiros = [] 
 let tiros = {
     des(){
@@ -40,15 +46,15 @@ let inimigos = {
     criaInimigos(){
         this.time1 += 1
         this.time2 += 1
-        let pos_y = Math.floor(Math.random() * (320 - 140) + 140)
-        let pos_y2 = Math.floor(Math.random() * (320 - 140) + 140)
+        let pos_y = Math.floor(Math.random() * (300 - 140) + 140)
+        let pos_y2 = Math.floor(Math.random() * (300 - 140) + 140)
         if(this.time1 >=100){
             this.time1 = 0
-            grupoInimigos.push(new Inimigos(1100, pos_y,70,70, "../Assets/tanque_inimigo.png"))
+            grupoInimigos.push(new Inimigos(1300, pos_y,70,70, "../Assets/tanque_inimigo.png"))
         }
         if(this.time2 >=200){
             this.time2 = 0
-            grupoInimigos.push(new Inimigos(1250,pos_y2,70,70, "../Assets/tanque_inimigo.png"))
+            grupoInimigos.push(new Inimigos(1350,pos_y2,70,70, "../Assets/tanque_inimigo.png"))
         }
     },
     des(){
@@ -116,6 +122,7 @@ document.addEventListener('keyup', (e)=> {
 function gameOver(){
     if(tanque.vida <= 0){
         jogar = false
+        andando.pause()
     }
 }
 
@@ -161,6 +168,7 @@ function atualiza(){
     tiros.atual()
     inimigos.atual()
     colisao()
+    andando.play()
     }
     gameOver()
 
@@ -173,7 +181,6 @@ function main(){
 }
 
 function resetar(){
-    
 }
 
 setInterval(main,10)
