@@ -21,6 +21,7 @@ canvas{
     right: 0;
     border-radius: 20px;
     box-shadow: 1px 1px 5px black;
+    z-index: 0;
 }
 
 
@@ -41,4 +42,22 @@ img{
     box-shadow: 3px 3px 1px;
 }   
 
+#game2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(50%, 50%);
+    z-index: 1;
+    margin: 5px;
+    padding: 5px;
+    background-color: transparent;
+    border-color: transparent;
+}
 
+#game2 {
+    display: none;
+}
+
+button{
+    cursor: pointer;
+}
